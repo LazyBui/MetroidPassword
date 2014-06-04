@@ -2,10 +2,22 @@
 
 namespace MetroidPassword {
 	internal static partial class Extensions {
-		private const int ByteSize = sizeof(byte) * 8;
-		private const int ShortSize = sizeof(ushort) * 8;
-		private const int IntSize = sizeof(uint) * 8;
-		private const int LongSize = sizeof(ulong) * 8;
+		private const int BitsInByte = 8;
+		private const int ByteSize = sizeof(byte) * BitsInByte;
+		private const int ShortSize = sizeof(ushort) * BitsInByte;
+		private const int IntSize = sizeof(uint) * BitsInByte;
+		private const int LongSize = sizeof(ulong) * BitsInByte;
+
+		private static byte[] sFlipTable = new byte[] { 
+			0x00, 0x08, 0x04, 0x0C,
+			0x02, 0x0A, 0x06, 0x0E,
+			0x01, 0x09, 0x05, 0x0D,
+			0x03, 0x0B, 0x07, 0x0F,
+		};
+
+		public static byte ReverseBits(this byte pVal) {
+			return (byte)((sFlipTable[pVal & 0x0F] << 4) | sFlipTable[pVal >> 4]);
+		}
 
 		public static byte RotateRight(this byte pVal, int pShiftCount) {
 			pShiftCount &= ByteSize - 1;

@@ -23,13 +23,6 @@ namespace MetroidPassword.Tools {
 		private const int GameAgeEndByteIndex = 14;
 		private const int GameAgeStartByteIndex = 11;
 
-		private static byte[] sFlipTable = new byte[] { 
-			0x00, 0x08, 0x04, 0x0C,
-			0x02, 0x0A, 0x06, 0x0E,
-			0x01, 0x09, 0x05, 0x0D,
-			0x03, 0x0B, 0x07, 0x0F,
-		};
-
 		private static void Swap(byte[] pBytes, int pIndex1, int pIndex2) {
 			byte temp = pBytes[pIndex1];
 			pBytes[pIndex1] = pBytes[pIndex2];
@@ -72,8 +65,7 @@ namespace MetroidPassword.Tools {
 			}
 			for (int i = 0; i < decoded.Length; i++) {
 				if (i >= GameAgeStartByteIndex && i <= GameAgeEndByteIndex) continue;
-				byte b = decoded[i];
-				decoded[i] = (byte)((sFlipTable[b & 0x0F] << 4) | sFlipTable[b >> 4]);
+				decoded[i] = decoded[i].ReverseBits();
 			}
 
 			var reader = new PackedBitReader(decoded);
@@ -102,8 +94,7 @@ namespace MetroidPassword.Tools {
 			}
 			for (int i = 0; i < ChecksumByteCount; i++) {
 				if (i >= GameAgeStartByteIndex && i <= GameAgeEndByteIndex) continue;
-				byte b = bytes[i];
-				bytes[i] = (byte)((sFlipTable[b & 0x0F] << 4) | sFlipTable[b >> 4]);
+				bytes[i] = bytes[i].ReverseBits();
 			}
 
 			byte checksum = CalculateChecksum(bytes, Properties.Shift);

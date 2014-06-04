@@ -771,7 +771,7 @@
 			// chkKraidEnergyTank
 			// 
 			this.chkKraidEnergyTank.AutoSize = true;
-			this.chkKraidEnergyTank.Location = new System.Drawing.Point(16, 66);
+			this.chkKraidEnergyTank.Location = new System.Drawing.Point(14, 66);
 			this.chkKraidEnergyTank.Name = "chkKraidEnergyTank";
 			this.chkKraidEnergyTank.Size = new System.Drawing.Size(50, 17);
 			this.chkKraidEnergyTank.TabIndex = 7;
@@ -782,7 +782,7 @@
 			// chkRidleyEnergyTank
 			// 
 			this.chkRidleyEnergyTank.AutoSize = true;
-			this.chkRidleyEnergyTank.Location = new System.Drawing.Point(16, 43);
+			this.chkRidleyEnergyTank.Location = new System.Drawing.Point(14, 43);
 			this.chkRidleyEnergyTank.Name = "chkRidleyEnergyTank";
 			this.chkRidleyEnergyTank.Size = new System.Drawing.Size(55, 17);
 			this.chkRidleyEnergyTank.TabIndex = 6;
@@ -793,7 +793,7 @@
 			// chkRidleyLairEnergyTank
 			// 
 			this.chkRidleyLairEnergyTank.AutoSize = true;
-			this.chkRidleyLairEnergyTank.Location = new System.Drawing.Point(16, 181);
+			this.chkRidleyLairEnergyTank.Location = new System.Drawing.Point(14, 181);
 			this.chkRidleyLairEnergyTank.Name = "chkRidleyLairEnergyTank";
 			this.chkRidleyLairEnergyTank.Size = new System.Drawing.Size(82, 17);
 			this.chkRidleyLairEnergyTank.TabIndex = 5;
@@ -804,7 +804,7 @@
 			// chkBrinstarEnergyTank3
 			// 
 			this.chkBrinstarEnergyTank3.AutoSize = true;
-			this.chkBrinstarEnergyTank3.Location = new System.Drawing.Point(16, 158);
+			this.chkBrinstarEnergyTank3.Location = new System.Drawing.Point(14, 158);
 			this.chkBrinstarEnergyTank3.Name = "chkBrinstarEnergyTank3";
 			this.chkBrinstarEnergyTank3.Size = new System.Drawing.Size(72, 17);
 			this.chkBrinstarEnergyTank3.TabIndex = 4;
@@ -815,7 +815,7 @@
 			// chkBrinstarEnergyTank2
 			// 
 			this.chkBrinstarEnergyTank2.AutoSize = true;
-			this.chkBrinstarEnergyTank2.Location = new System.Drawing.Point(16, 135);
+			this.chkBrinstarEnergyTank2.Location = new System.Drawing.Point(14, 135);
 			this.chkBrinstarEnergyTank2.Name = "chkBrinstarEnergyTank2";
 			this.chkBrinstarEnergyTank2.Size = new System.Drawing.Size(72, 17);
 			this.chkBrinstarEnergyTank2.TabIndex = 3;
@@ -826,7 +826,7 @@
 			// chkBrinstarEnergyTank1
 			// 
 			this.chkBrinstarEnergyTank1.AutoSize = true;
-			this.chkBrinstarEnergyTank1.Location = new System.Drawing.Point(16, 112);
+			this.chkBrinstarEnergyTank1.Location = new System.Drawing.Point(14, 112);
 			this.chkBrinstarEnergyTank1.Name = "chkBrinstarEnergyTank1";
 			this.chkBrinstarEnergyTank1.Size = new System.Drawing.Size(72, 17);
 			this.chkBrinstarEnergyTank1.TabIndex = 2;
@@ -837,7 +837,7 @@
 			// chkKraidLairEnergyTank
 			// 
 			this.chkKraidLairEnergyTank.AutoSize = true;
-			this.chkKraidLairEnergyTank.Location = new System.Drawing.Point(16, 88);
+			this.chkKraidLairEnergyTank.Location = new System.Drawing.Point(14, 88);
 			this.chkKraidLairEnergyTank.Name = "chkKraidLairEnergyTank";
 			this.chkKraidLairEnergyTank.Size = new System.Drawing.Size(77, 17);
 			this.chkKraidLairEnergyTank.TabIndex = 1;
@@ -848,7 +848,7 @@
 			// chkNorfairEnergyTank
 			// 
 			this.chkNorfairEnergyTank.AutoSize = true;
-			this.chkNorfairEnergyTank.Location = new System.Drawing.Point(16, 20);
+			this.chkNorfairEnergyTank.Location = new System.Drawing.Point(14, 20);
 			this.chkNorfairEnergyTank.Name = "chkNorfairEnergyTank";
 			this.chkNorfairEnergyTank.Size = new System.Drawing.Size(59, 17);
 			this.chkNorfairEnergyTank.TabIndex = 0;
@@ -884,7 +884,7 @@
 			// chkTourianRedDoor2
 			// 
 			this.chkTourianRedDoor2.AutoSize = true;
-			this.chkTourianRedDoor2.Location = new System.Drawing.Point(144, 181);
+			this.chkTourianRedDoor2.Location = new System.Drawing.Point(147, 181);
 			this.chkTourianRedDoor2.Name = "chkTourianRedDoor2";
 			this.chkTourianRedDoor2.Size = new System.Drawing.Size(71, 17);
 			this.chkTourianRedDoor2.TabIndex = 15;
@@ -895,7 +895,7 @@
 			// chkTourianRedDoor1
 			// 
 			this.chkTourianRedDoor1.AutoSize = true;
-			this.chkTourianRedDoor1.Location = new System.Drawing.Point(144, 158);
+			this.chkTourianRedDoor1.Location = new System.Drawing.Point(147, 158);
 			this.chkTourianRedDoor1.Name = "chkTourianRedDoor1";
 			this.chkTourianRedDoor1.Size = new System.Drawing.Size(71, 17);
 			this.chkTourianRedDoor1.TabIndex = 14;
@@ -906,7 +906,7 @@
 			// chkTourianBridgeRedDoor
 			// 
 			this.chkTourianBridgeRedDoor.AutoSize = true;
-			this.chkTourianBridgeRedDoor.Location = new System.Drawing.Point(144, 135);
+			this.chkTourianBridgeRedDoor.Location = new System.Drawing.Point(147, 135);
 			this.chkTourianBridgeRedDoor.Name = "chkTourianBridgeRedDoor";
 			this.chkTourianBridgeRedDoor.Size = new System.Drawing.Size(95, 17);
 			this.chkTourianBridgeRedDoor.TabIndex = 13;
@@ -917,7 +917,7 @@
 			// chkKraidRoomRedDoor
 			// 
 			this.chkKraidRoomRedDoor.AutoSize = true;
-			this.chkKraidRoomRedDoor.Location = new System.Drawing.Point(144, 19);
+			this.chkKraidRoomRedDoor.Location = new System.Drawing.Point(147, 19);
 			this.chkKraidRoomRedDoor.Name = "chkKraidRoomRedDoor";
 			this.chkKraidRoomRedDoor.Size = new System.Drawing.Size(87, 17);
 			this.chkKraidRoomRedDoor.TabIndex = 12;
@@ -928,7 +928,7 @@
 			// chkKraidLairRedDoor4
 			// 
 			this.chkKraidLairRedDoor4.AutoSize = true;
-			this.chkKraidLairRedDoor4.Location = new System.Drawing.Point(144, 112);
+			this.chkKraidLairRedDoor4.Location = new System.Drawing.Point(147, 112);
 			this.chkKraidLairRedDoor4.Name = "chkKraidLairRedDoor4";
 			this.chkKraidLairRedDoor4.Size = new System.Drawing.Size(86, 17);
 			this.chkKraidLairRedDoor4.TabIndex = 11;
@@ -939,7 +939,7 @@
 			// chkKraidLairRedDoor3
 			// 
 			this.chkKraidLairRedDoor3.AutoSize = true;
-			this.chkKraidLairRedDoor3.Location = new System.Drawing.Point(144, 89);
+			this.chkKraidLairRedDoor3.Location = new System.Drawing.Point(147, 89);
 			this.chkKraidLairRedDoor3.Name = "chkKraidLairRedDoor3";
 			this.chkKraidLairRedDoor3.Size = new System.Drawing.Size(86, 17);
 			this.chkKraidLairRedDoor3.TabIndex = 10;
@@ -950,7 +950,7 @@
 			// chkKraidLairRedDoor2
 			// 
 			this.chkKraidLairRedDoor2.AutoSize = true;
-			this.chkKraidLairRedDoor2.Location = new System.Drawing.Point(144, 66);
+			this.chkKraidLairRedDoor2.Location = new System.Drawing.Point(147, 66);
 			this.chkKraidLairRedDoor2.Name = "chkKraidLairRedDoor2";
 			this.chkKraidLairRedDoor2.Size = new System.Drawing.Size(86, 17);
 			this.chkKraidLairRedDoor2.TabIndex = 9;
@@ -961,7 +961,7 @@
 			// chkKraidLairRedDoor1
 			// 
 			this.chkKraidLairRedDoor1.AutoSize = true;
-			this.chkKraidLairRedDoor1.Location = new System.Drawing.Point(144, 43);
+			this.chkKraidLairRedDoor1.Location = new System.Drawing.Point(147, 43);
 			this.chkKraidLairRedDoor1.Name = "chkKraidLairRedDoor1";
 			this.chkKraidLairRedDoor1.Size = new System.Drawing.Size(86, 17);
 			this.chkKraidLairRedDoor1.TabIndex = 8;
@@ -972,7 +972,7 @@
 			// chkBrinstarIceBeamRedDoor
 			// 
 			this.chkBrinstarIceBeamRedDoor.AutoSize = true;
-			this.chkBrinstarIceBeamRedDoor.Location = new System.Drawing.Point(10, 135);
+			this.chkBrinstarIceBeamRedDoor.Location = new System.Drawing.Point(13, 135);
 			this.chkBrinstarIceBeamRedDoor.Name = "chkBrinstarIceBeamRedDoor";
 			this.chkBrinstarIceBeamRedDoor.Size = new System.Drawing.Size(110, 17);
 			this.chkBrinstarIceBeamRedDoor.TabIndex = 7;
@@ -983,7 +983,7 @@
 			// chkNorfairIceBeamRedDoor
 			// 
 			this.chkNorfairIceBeamRedDoor.AutoSize = true;
-			this.chkNorfairIceBeamRedDoor.Location = new System.Drawing.Point(10, 112);
+			this.chkNorfairIceBeamRedDoor.Location = new System.Drawing.Point(13, 112);
 			this.chkNorfairIceBeamRedDoor.Name = "chkNorfairIceBeamRedDoor";
 			this.chkNorfairIceBeamRedDoor.Size = new System.Drawing.Size(106, 17);
 			this.chkNorfairIceBeamRedDoor.TabIndex = 6;
@@ -994,7 +994,7 @@
 			// chkLongBeamRedDoor
 			// 
 			this.chkLongBeamRedDoor.AutoSize = true;
-			this.chkLongBeamRedDoor.Location = new System.Drawing.Point(10, 181);
+			this.chkLongBeamRedDoor.Location = new System.Drawing.Point(13, 181);
 			this.chkLongBeamRedDoor.Name = "chkLongBeamRedDoor";
 			this.chkLongBeamRedDoor.Size = new System.Drawing.Size(78, 17);
 			this.chkLongBeamRedDoor.TabIndex = 5;
@@ -1005,7 +1005,7 @@
 			// chkBombsRedDoor
 			// 
 			this.chkBombsRedDoor.AutoSize = true;
-			this.chkBombsRedDoor.Location = new System.Drawing.Point(11, 20);
+			this.chkBombsRedDoor.Location = new System.Drawing.Point(14, 20);
 			this.chkBombsRedDoor.Name = "chkBombsRedDoor";
 			this.chkBombsRedDoor.Size = new System.Drawing.Size(57, 17);
 			this.chkBombsRedDoor.TabIndex = 4;
@@ -1016,7 +1016,7 @@
 			// chkVariaSuitRedDoor
 			// 
 			this.chkVariaSuitRedDoor.AutoSize = true;
-			this.chkVariaSuitRedDoor.Location = new System.Drawing.Point(11, 89);
+			this.chkVariaSuitRedDoor.Location = new System.Drawing.Point(14, 89);
 			this.chkVariaSuitRedDoor.Name = "chkVariaSuitRedDoor";
 			this.chkVariaSuitRedDoor.Size = new System.Drawing.Size(71, 17);
 			this.chkVariaSuitRedDoor.TabIndex = 3;
@@ -1027,7 +1027,7 @@
 			// chkHighJumpBootsRedDoor
 			// 
 			this.chkHighJumpBootsRedDoor.AutoSize = true;
-			this.chkHighJumpBootsRedDoor.Location = new System.Drawing.Point(11, 66);
+			this.chkHighJumpBootsRedDoor.Location = new System.Drawing.Point(14, 66);
 			this.chkHighJumpBootsRedDoor.Name = "chkHighJumpBootsRedDoor";
 			this.chkHighJumpBootsRedDoor.Size = new System.Drawing.Size(105, 17);
 			this.chkHighJumpBootsRedDoor.TabIndex = 2;
@@ -1038,7 +1038,7 @@
 			// chkScrewAttackRedDoor
 			// 
 			this.chkScrewAttackRedDoor.AutoSize = true;
-			this.chkScrewAttackRedDoor.Location = new System.Drawing.Point(11, 43);
+			this.chkScrewAttackRedDoor.Location = new System.Drawing.Point(14, 43);
 			this.chkScrewAttackRedDoor.Name = "chkScrewAttackRedDoor";
 			this.chkScrewAttackRedDoor.Size = new System.Drawing.Size(89, 17);
 			this.chkScrewAttackRedDoor.TabIndex = 1;
@@ -1049,7 +1049,7 @@
 			// chkWaveBeamRedDoor
 			// 
 			this.chkWaveBeamRedDoor.AutoSize = true;
-			this.chkWaveBeamRedDoor.Location = new System.Drawing.Point(10, 158);
+			this.chkWaveBeamRedDoor.Location = new System.Drawing.Point(13, 158);
 			this.chkWaveBeamRedDoor.Name = "chkWaveBeamRedDoor";
 			this.chkWaveBeamRedDoor.Size = new System.Drawing.Size(83, 17);
 			this.chkWaveBeamRedDoor.TabIndex = 0;
@@ -1314,7 +1314,7 @@
 			// chkKraidDead
 			// 
 			this.chkKraidDead.AutoSize = true;
-			this.chkKraidDead.Location = new System.Drawing.Point(15, 44);
+			this.chkKraidDead.Location = new System.Drawing.Point(12, 44);
 			this.chkKraidDead.Name = "chkKraidDead";
 			this.chkKraidDead.Size = new System.Drawing.Size(78, 17);
 			this.chkKraidDead.TabIndex = 11;
@@ -1325,7 +1325,7 @@
 			// chkMotherBrainDead
 			// 
 			this.chkMotherBrainDead.AutoSize = true;
-			this.chkMotherBrainDead.Location = new System.Drawing.Point(15, 67);
+			this.chkMotherBrainDead.Location = new System.Drawing.Point(12, 67);
 			this.chkMotherBrainDead.Name = "chkMotherBrainDead";
 			this.chkMotherBrainDead.Size = new System.Drawing.Size(115, 17);
 			this.chkMotherBrainDead.TabIndex = 10;
@@ -1336,7 +1336,7 @@
 			// chkRidleyDead
 			// 
 			this.chkRidleyDead.AutoSize = true;
-			this.chkRidleyDead.Location = new System.Drawing.Point(15, 21);
+			this.chkRidleyDead.Location = new System.Drawing.Point(12, 21);
 			this.chkRidleyDead.Name = "chkRidleyDead";
 			this.chkRidleyDead.Size = new System.Drawing.Size(83, 17);
 			this.chkRidleyDead.TabIndex = 9;
