@@ -147,7 +147,7 @@
 			// 
 			// btnImport
 			// 
-			this.btnImport.Location = new System.Drawing.Point(5, 624);
+			this.btnImport.Location = new System.Drawing.Point(5, 619);
 			this.btnImport.Name = "btnImport";
 			this.btnImport.Size = new System.Drawing.Size(75, 23);
 			this.btnImport.TabIndex = 0;
@@ -158,7 +158,7 @@
 			// btnExit
 			// 
 			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnExit.Location = new System.Drawing.Point(637, 624);
+			this.btnExit.Location = new System.Drawing.Point(637, 619);
 			this.btnExit.Name = "btnExit";
 			this.btnExit.Size = new System.Drawing.Size(75, 23);
 			this.btnExit.TabIndex = 1;
@@ -183,9 +183,9 @@
 			this.grpStartLocation.Controls.Add(this.rbNorfair);
 			this.grpStartLocation.Controls.Add(this.rbKraidLair);
 			this.grpStartLocation.Controls.Add(this.rbBrinstar);
-			this.grpStartLocation.Location = new System.Drawing.Point(5, 43);
+			this.grpStartLocation.Location = new System.Drawing.Point(5, 40);
 			this.grpStartLocation.Name = "grpStartLocation";
-			this.grpStartLocation.Size = new System.Drawing.Size(111, 166);
+			this.grpStartLocation.Size = new System.Drawing.Size(112, 165);
 			this.grpStartLocation.TabIndex = 4;
 			this.grpStartLocation.TabStop = false;
 			this.grpStartLocation.Text = "Start Location";
@@ -193,7 +193,7 @@
 			// rbTourian
 			// 
 			this.rbTourian.AutoSize = true;
-			this.rbTourian.Location = new System.Drawing.Point(15, 111);
+			this.rbTourian.Location = new System.Drawing.Point(15, 114);
 			this.rbTourian.Name = "rbTourian";
 			this.rbTourian.Size = new System.Drawing.Size(61, 17);
 			this.rbTourian.TabIndex = 4;
@@ -205,7 +205,7 @@
 			// rbRidleyLair
 			// 
 			this.rbRidleyLair.AutoSize = true;
-			this.rbRidleyLair.Location = new System.Drawing.Point(15, 88);
+			this.rbRidleyLair.Location = new System.Drawing.Point(15, 91);
 			this.rbRidleyLair.Name = "rbRidleyLair";
 			this.rbRidleyLair.Size = new System.Drawing.Size(81, 17);
 			this.rbRidleyLair.TabIndex = 3;
@@ -217,7 +217,7 @@
 			// rbNorfair
 			// 
 			this.rbNorfair.AutoSize = true;
-			this.rbNorfair.Location = new System.Drawing.Point(15, 65);
+			this.rbNorfair.Location = new System.Drawing.Point(15, 68);
 			this.rbNorfair.Name = "rbNorfair";
 			this.rbNorfair.Size = new System.Drawing.Size(58, 17);
 			this.rbNorfair.TabIndex = 2;
@@ -229,7 +229,7 @@
 			// rbKraidLair
 			// 
 			this.rbKraidLair.AutoSize = true;
-			this.rbKraidLair.Location = new System.Drawing.Point(15, 42);
+			this.rbKraidLair.Location = new System.Drawing.Point(15, 46);
 			this.rbKraidLair.Name = "rbKraidLair";
 			this.rbKraidLair.Size = new System.Drawing.Size(76, 17);
 			this.rbKraidLair.TabIndex = 1;
@@ -241,7 +241,7 @@
 			// rbBrinstar
 			// 
 			this.rbBrinstar.AutoSize = true;
-			this.rbBrinstar.Location = new System.Drawing.Point(15, 20);
+			this.rbBrinstar.Location = new System.Drawing.Point(15, 23);
 			this.rbBrinstar.Name = "rbBrinstar";
 			this.rbBrinstar.Size = new System.Drawing.Size(62, 17);
 			this.rbBrinstar.TabIndex = 0;
@@ -268,9 +268,9 @@
 			this.grpEquipment.Controls.Add(this.chkVariaSuitTaken);
 			this.grpEquipment.Controls.Add(this.txtMissiles);
 			this.grpEquipment.Controls.Add(this.label5);
-			this.grpEquipment.Location = new System.Drawing.Point(126, 44);
+			this.grpEquipment.Location = new System.Drawing.Point(129, 40);
 			this.grpEquipment.Name = "grpEquipment";
-			this.grpEquipment.Size = new System.Drawing.Size(420, 165);
+			this.grpEquipment.Size = new System.Drawing.Size(421, 165);
 			this.grpEquipment.TabIndex = 5;
 			this.grpEquipment.TabStop = false;
 			this.grpEquipment.Text = "Equipment";
@@ -311,7 +311,7 @@
 			// chkHasScrewAttack
 			// 
 			this.chkHasScrewAttack.AutoSize = true;
-			this.chkHasScrewAttack.Location = new System.Drawing.Point(160, 21);
+			this.chkHasScrewAttack.Location = new System.Drawing.Point(160, 22);
 			this.chkHasScrewAttack.Name = "chkHasScrewAttack";
 			this.chkHasScrewAttack.Size = new System.Drawing.Size(110, 17);
 			this.chkHasScrewAttack.TabIndex = 12;
@@ -377,7 +377,7 @@
 			// rbHasNeither
 			// 
 			this.rbHasNeither.AutoSize = true;
-			this.rbHasNeither.Location = new System.Drawing.Point(299, 66);
+			this.rbHasNeither.Location = new System.Drawing.Point(299, 67);
 			this.rbHasNeither.Name = "rbHasNeither";
 			this.rbHasNeither.Size = new System.Drawing.Size(81, 17);
 			this.rbHasNeither.TabIndex = 6;
@@ -389,7 +389,7 @@
 			// rbHasIceBeam
 			// 
 			this.rbHasIceBeam.AutoSize = true;
-			this.rbHasIceBeam.Location = new System.Drawing.Point(299, 43);
+			this.rbHasIceBeam.Location = new System.Drawing.Point(299, 44);
 			this.rbHasIceBeam.Name = "rbHasIceBeam";
 			this.rbHasIceBeam.Size = new System.Drawing.Size(90, 17);
 			this.rbHasIceBeam.TabIndex = 3;
@@ -401,7 +401,7 @@
 			// rbHasWaveBeam
 			// 
 			this.rbHasWaveBeam.AutoSize = true;
-			this.rbHasWaveBeam.Location = new System.Drawing.Point(299, 21);
+			this.rbHasWaveBeam.Location = new System.Drawing.Point(299, 22);
 			this.rbHasWaveBeam.Name = "rbHasWaveBeam";
 			this.rbHasWaveBeam.Size = new System.Drawing.Size(103, 17);
 			this.rbHasWaveBeam.TabIndex = 2;
@@ -434,7 +434,7 @@
 			// 
 			// txtMissiles
 			// 
-			this.txtMissiles.Location = new System.Drawing.Point(254, 128);
+			this.txtMissiles.Location = new System.Drawing.Point(255, 124);
 			this.txtMissiles.MaxLength = 3;
 			this.txtMissiles.Name = "txtMissiles";
 			this.txtMissiles.Size = new System.Drawing.Size(100, 21);
@@ -444,7 +444,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(202, 131);
+			this.label5.Location = new System.Drawing.Point(203, 127);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(46, 13);
 			this.label5.TabIndex = 0;
@@ -477,7 +477,7 @@
 			this.grpMissiles.Controls.Add(this.chkBrinstarMissileContainer2);
 			this.grpMissiles.Controls.Add(this.chkBrinstarMissileContainer1);
 			this.grpMissiles.Controls.Add(this.label9);
-			this.grpMissiles.Location = new System.Drawing.Point(344, 432);
+			this.grpMissiles.Location = new System.Drawing.Point(344, 428);
 			this.grpMissiles.Name = "grpMissiles";
 			this.grpMissiles.Size = new System.Drawing.Size(368, 182);
 			this.grpMissiles.TabIndex = 6;
@@ -487,7 +487,7 @@
 			// chkKraidLairMissileContainer4
 			// 
 			this.chkKraidLairMissileContainer4.AutoSize = true;
-			this.chkKraidLairMissileContainer4.Location = new System.Drawing.Point(302, 73);
+			this.chkKraidLairMissileContainer4.Location = new System.Drawing.Point(301, 73);
 			this.chkKraidLairMissileContainer4.Name = "chkKraidLairMissileContainer4";
 			this.chkKraidLairMissileContainer4.Size = new System.Drawing.Size(48, 17);
 			this.chkKraidLairMissileContainer4.TabIndex = 26;
@@ -498,7 +498,7 @@
 			// chkKraidLairMissileContainer3
 			// 
 			this.chkKraidLairMissileContainer3.AutoSize = true;
-			this.chkKraidLairMissileContainer3.Location = new System.Drawing.Point(302, 50);
+			this.chkKraidLairMissileContainer3.Location = new System.Drawing.Point(301, 50);
 			this.chkKraidLairMissileContainer3.Name = "chkKraidLairMissileContainer3";
 			this.chkKraidLairMissileContainer3.Size = new System.Drawing.Size(54, 17);
 			this.chkKraidLairMissileContainer3.TabIndex = 25;
@@ -723,7 +723,7 @@
 			// chkBrinstarMissileContainer2
 			// 
 			this.chkBrinstarMissileContainer2.AutoSize = true;
-			this.chkBrinstarMissileContainer2.Location = new System.Drawing.Point(13, 73);
+			this.chkBrinstarMissileContainer2.Location = new System.Drawing.Point(12, 73);
 			this.chkBrinstarMissileContainer2.Name = "chkBrinstarMissileContainer2";
 			this.chkBrinstarMissileContainer2.Size = new System.Drawing.Size(46, 17);
 			this.chkBrinstarMissileContainer2.TabIndex = 4;
@@ -734,7 +734,7 @@
 			// chkBrinstarMissileContainer1
 			// 
 			this.chkBrinstarMissileContainer1.AutoSize = true;
-			this.chkBrinstarMissileContainer1.Location = new System.Drawing.Point(13, 50);
+			this.chkBrinstarMissileContainer1.Location = new System.Drawing.Point(12, 50);
 			this.chkBrinstarMissileContainer1.Name = "chkBrinstarMissileContainer1";
 			this.chkBrinstarMissileContainer1.Size = new System.Drawing.Size(46, 17);
 			this.chkBrinstarMissileContainer1.TabIndex = 3;
@@ -761,9 +761,9 @@
 			this.grpEnergy.Controls.Add(this.chkBrinstarEnergyTank1);
 			this.grpEnergy.Controls.Add(this.chkKraidLairEnergyTank);
 			this.grpEnergy.Controls.Add(this.chkNorfairEnergyTank);
-			this.grpEnergy.Location = new System.Drawing.Point(437, 215);
+			this.grpEnergy.Location = new System.Drawing.Point(437, 211);
 			this.grpEnergy.Name = "grpEnergy";
-			this.grpEnergy.Size = new System.Drawing.Size(124, 211);
+			this.grpEnergy.Size = new System.Drawing.Size(126, 211);
 			this.grpEnergy.TabIndex = 7;
 			this.grpEnergy.TabStop = false;
 			this.grpEnergy.Text = "Energy Tanks";
@@ -837,7 +837,7 @@
 			// chkKraidLairEnergyTank
 			// 
 			this.chkKraidLairEnergyTank.AutoSize = true;
-			this.chkKraidLairEnergyTank.Location = new System.Drawing.Point(14, 88);
+			this.chkKraidLairEnergyTank.Location = new System.Drawing.Point(14, 89);
 			this.chkKraidLairEnergyTank.Name = "chkKraidLairEnergyTank";
 			this.chkKraidLairEnergyTank.Size = new System.Drawing.Size(77, 17);
 			this.chkKraidLairEnergyTank.TabIndex = 1;
@@ -874,9 +874,9 @@
 			this.grpRedDoors.Controls.Add(this.chkHighJumpBootsRedDoor);
 			this.grpRedDoors.Controls.Add(this.chkScrewAttackRedDoor);
 			this.grpRedDoors.Controls.Add(this.chkWaveBeamRedDoor);
-			this.grpRedDoors.Location = new System.Drawing.Point(5, 215);
+			this.grpRedDoors.Location = new System.Drawing.Point(5, 211);
 			this.grpRedDoors.Name = "grpRedDoors";
-			this.grpRedDoors.Size = new System.Drawing.Size(253, 211);
+			this.grpRedDoors.Size = new System.Drawing.Size(256, 211);
 			this.grpRedDoors.TabIndex = 8;
 			this.grpRedDoors.TabStop = false;
 			this.grpRedDoors.Text = "Red Doors";
@@ -917,7 +917,7 @@
 			// chkKraidRoomRedDoor
 			// 
 			this.chkKraidRoomRedDoor.AutoSize = true;
-			this.chkKraidRoomRedDoor.Location = new System.Drawing.Point(147, 19);
+			this.chkKraidRoomRedDoor.Location = new System.Drawing.Point(147, 20);
 			this.chkKraidRoomRedDoor.Name = "chkKraidRoomRedDoor";
 			this.chkKraidRoomRedDoor.Size = new System.Drawing.Size(87, 17);
 			this.chkKraidRoomRedDoor.TabIndex = 12;
@@ -1077,9 +1077,9 @@
 			this.grpMisc.Controls.Add(this.lblGameTime);
 			this.grpMisc.Controls.Add(this.txtGameTime);
 			this.grpMisc.Controls.Add(this.label1);
-			this.grpMisc.Location = new System.Drawing.Point(5, 432);
+			this.grpMisc.Location = new System.Drawing.Point(5, 428);
 			this.grpMisc.Name = "grpMisc";
-			this.grpMisc.Size = new System.Drawing.Size(326, 182);
+			this.grpMisc.Size = new System.Drawing.Size(327, 182);
 			this.grpMisc.TabIndex = 9;
 			this.grpMisc.TabStop = false;
 			this.grpMisc.Text = "Misc";
@@ -1303,7 +1303,7 @@
 			// chkZebetite1Dead
 			// 
 			this.chkZebetite1Dead.AutoSize = true;
-			this.chkZebetite1Dead.Location = new System.Drawing.Point(13, 21);
+			this.chkZebetite1Dead.Location = new System.Drawing.Point(13, 22);
 			this.chkZebetite1Dead.Name = "chkZebetite1Dead";
 			this.chkZebetite1Dead.Size = new System.Drawing.Size(123, 17);
 			this.chkZebetite1Dead.TabIndex = 15;
@@ -1314,7 +1314,7 @@
 			// chkKraidDead
 			// 
 			this.chkKraidDead.AutoSize = true;
-			this.chkKraidDead.Location = new System.Drawing.Point(12, 44);
+			this.chkKraidDead.Location = new System.Drawing.Point(12, 43);
 			this.chkKraidDead.Name = "chkKraidDead";
 			this.chkKraidDead.Size = new System.Drawing.Size(78, 17);
 			this.chkKraidDead.TabIndex = 11;
@@ -1325,7 +1325,7 @@
 			// chkMotherBrainDead
 			// 
 			this.chkMotherBrainDead.AutoSize = true;
-			this.chkMotherBrainDead.Location = new System.Drawing.Point(12, 67);
+			this.chkMotherBrainDead.Location = new System.Drawing.Point(12, 66);
 			this.chkMotherBrainDead.Name = "chkMotherBrainDead";
 			this.chkMotherBrainDead.Size = new System.Drawing.Size(115, 17);
 			this.chkMotherBrainDead.TabIndex = 10;
@@ -1336,7 +1336,7 @@
 			// chkRidleyDead
 			// 
 			this.chkRidleyDead.AutoSize = true;
-			this.chkRidleyDead.Location = new System.Drawing.Point(12, 21);
+			this.chkRidleyDead.Location = new System.Drawing.Point(12, 20);
 			this.chkRidleyDead.Name = "chkRidleyDead";
 			this.chkRidleyDead.Size = new System.Drawing.Size(83, 17);
 			this.chkRidleyDead.TabIndex = 9;
@@ -1349,9 +1349,9 @@
 			this.grpBosses.Controls.Add(this.chkRidleyDead);
 			this.grpBosses.Controls.Add(this.chkKraidDead);
 			this.grpBosses.Controls.Add(this.chkMotherBrainDead);
-			this.grpBosses.Location = new System.Drawing.Point(577, 215);
+			this.grpBosses.Location = new System.Drawing.Point(574, 211);
 			this.grpBosses.Name = "grpBosses";
-			this.grpBosses.Size = new System.Drawing.Size(135, 211);
+			this.grpBosses.Size = new System.Drawing.Size(138, 211);
 			this.grpBosses.TabIndex = 10;
 			this.grpBosses.TabStop = false;
 			this.grpBosses.Text = "Bosses";
@@ -1363,7 +1363,7 @@
 			this.grpMotherBrainCorridor.Controls.Add(this.chkZebetite3Dead);
 			this.grpMotherBrainCorridor.Controls.Add(this.chkZebetite2Dead);
 			this.grpMotherBrainCorridor.Controls.Add(this.chkZebetite1Dead);
-			this.grpMotherBrainCorridor.Location = new System.Drawing.Point(561, 44);
+			this.grpMotherBrainCorridor.Location = new System.Drawing.Point(561, 40);
 			this.grpMotherBrainCorridor.Name = "grpMotherBrainCorridor";
 			this.grpMotherBrainCorridor.Size = new System.Drawing.Size(151, 165);
 			this.grpMotherBrainCorridor.TabIndex = 20;
@@ -1375,9 +1375,9 @@
 			this.grpYellowDoors.Controls.Add(this.chkTourianYellowDoor);
 			this.grpYellowDoors.Controls.Add(this.chkRidleyLairRedDoor);
 			this.grpYellowDoors.Controls.Add(this.chkRidleyLairYellowDoor);
-			this.grpYellowDoors.Location = new System.Drawing.Point(273, 215);
+			this.grpYellowDoors.Location = new System.Drawing.Point(273, 211);
 			this.grpYellowDoors.Name = "grpYellowDoors";
-			this.grpYellowDoors.Size = new System.Drawing.Size(149, 211);
+			this.grpYellowDoors.Size = new System.Drawing.Size(152, 211);
 			this.grpYellowDoors.TabIndex = 21;
 			this.grpYellowDoors.TabStop = false;
 			this.grpYellowDoors.Text = "Yellow/Purple Doors";
@@ -1385,7 +1385,7 @@
 			// chkTourianYellowDoor
 			// 
 			this.chkTourianYellowDoor.AutoSize = true;
-			this.chkTourianYellowDoor.Location = new System.Drawing.Point(13, 67);
+			this.chkTourianYellowDoor.Location = new System.Drawing.Point(13, 66);
 			this.chkTourianYellowDoor.Name = "chkTourianYellowDoor";
 			this.chkTourianYellowDoor.Size = new System.Drawing.Size(62, 17);
 			this.chkTourianYellowDoor.TabIndex = 2;
@@ -1396,7 +1396,7 @@
 			// chkRidleyLairRedDoor
 			// 
 			this.chkRidleyLairRedDoor.AutoSize = true;
-			this.chkRidleyLairRedDoor.Location = new System.Drawing.Point(13, 21);
+			this.chkRidleyLairRedDoor.Location = new System.Drawing.Point(13, 20);
 			this.chkRidleyLairRedDoor.Name = "chkRidleyLairRedDoor";
 			this.chkRidleyLairRedDoor.Size = new System.Drawing.Size(123, 17);
 			this.chkRidleyLairRedDoor.TabIndex = 1;
@@ -1407,7 +1407,7 @@
 			// chkRidleyLairYellowDoor
 			// 
 			this.chkRidleyLairYellowDoor.AutoSize = true;
-			this.chkRidleyLairYellowDoor.Location = new System.Drawing.Point(13, 44);
+			this.chkRidleyLairYellowDoor.Location = new System.Drawing.Point(13, 43);
 			this.chkRidleyLairYellowDoor.Name = "chkRidleyLairYellowDoor";
 			this.chkRidleyLairYellowDoor.Size = new System.Drawing.Size(123, 17);
 			this.chkRidleyLairYellowDoor.TabIndex = 0;
@@ -1417,7 +1417,7 @@
 			// 
 			// MainForm
 			// 
-			this.ClientSize = new System.Drawing.Size(719, 654);
+			this.ClientSize = new System.Drawing.Size(717, 649);
 			this.Controls.Add(this.grpYellowDoors);
 			this.Controls.Add(this.grpMotherBrainCorridor);
 			this.Controls.Add(this.grpBosses);
