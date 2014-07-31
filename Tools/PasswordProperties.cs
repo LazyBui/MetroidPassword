@@ -67,9 +67,9 @@ namespace MetroidPassword.Tools {
 		[PackedBitRange(58)] public bool Zebetite5Dead { get; set; }
 		[PackedBitRange(59)] public bool MotherBrainDead { get; set; }
 		[PackedBitRange(60, 64)] public byte Unk1 { get; set; }
-		[PackedBitRange(65)] public bool StartInNorfair { get; set; }
-		[PackedBitRange(66)] public bool StartInKraidLair { get; set; }
-		[PackedBitRange(67)] public bool StartInRidleyLair { get; set; }
+		[PackedBitRange(65)] public bool RawStartInNorfair { get; set; }
+		[PackedBitRange(66)] public bool RawStartInKraidLair { get; set; }
+		[PackedBitRange(67)] public bool RawStartInRidleyLair { get; set; }
 		[PackedBitRange(68)] public bool Reset { get; set; }
 		[PackedBitRange(69, 71)] public byte Unk2 { get; set; }
 		[PackedBitRange(72)] public bool Swimsuit { get; set; }
@@ -79,8 +79,8 @@ namespace MetroidPassword.Tools {
 		[PackedBitRange(76)] public bool HasScrewAttack { get; set; }
 		[PackedBitRange(77)] public bool HasMorphBall { get; set; }
 		[PackedBitRange(78)] public bool HasVariaSuit { get; set; }
-		[PackedBitRange(79)] public bool HasWaveBeam { get; set; }
-		[PackedBitRange(80)] public bool HasIceBeam { get; set; }
+		[PackedBitRange(79)] public bool RawHasWaveBeam { get; set; }
+		[PackedBitRange(80)] public bool RawHasIceBeam { get; set; }
 		[PackedBitRange(81)] public bool MissileCount1 { get; set; }
 		[PackedBitRange(82)] public bool MissileCount2 { get; set; }
 		[PackedBitRange(83)] public bool MissileCount4 { get; set; }
@@ -124,29 +124,84 @@ namespace MetroidPassword.Tools {
 			}
 		}
 
+		public bool StartInNorfair {
+			get { return RawStartInNorfair; }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawStartInNorfair = true;
+				RawStartInKraidLair = false;
+				RawStartInRidleyLair = false;
+			}
+		}
+
+		public bool StartInKraidLair {
+			get { return RawStartInKraidLair; }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawStartInNorfair = false;
+				RawStartInKraidLair = true;
+				RawStartInRidleyLair = false;
+			}
+		}
+
+		public bool StartInRidleyLair {
+			get { return RawStartInRidleyLair; }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawStartInNorfair = false;
+				RawStartInKraidLair = false;
+				RawStartInRidleyLair = true;
+			}
+		}
+
 		public bool StartInBrinstar {
 			get {
-				return !new[] { StartInNorfair, StartInKraidLair, StartInRidleyLair }.Any(b => b);
+				return !new[] { RawStartInNorfair, RawStartInKraidLair, RawStartInRidleyLair }.Any(b => b);
 			}
 			set {
-				if (value) {
-					StartInNorfair = false;
-					StartInKraidLair = false;
-					StartInRidleyLair = false;
-				}
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawStartInNorfair = false;
+				RawStartInKraidLair = false;
+				RawStartInRidleyLair = false;
 			}
 		}
 
 		public bool StartInTourian {
 			get {
-				return new[] { StartInNorfair, StartInKraidLair }.All(b => b);
+				return new[] { RawStartInNorfair, RawStartInKraidLair }.All(b => b);
 			}
 			set {
-				if (value) {
-					StartInNorfair = true;
-					StartInKraidLair = true;
-					StartInRidleyLair = false;
-				}
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawStartInNorfair = true;
+				RawStartInKraidLair = true;
+				RawStartInRidleyLair = false;
+			}
+		}
+
+		public bool HasWaveBeam {
+			get { return RawHasWaveBeam; }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawHasIceBeam = false;
+				RawHasWaveBeam = true;
+			}
+		}
+
+		public bool HasIceBeam {
+			get { return RawHasIceBeam; }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawHasIceBeam = true;
+				RawHasWaveBeam = false;
+			}
+		}
+
+		public bool HasNormalBeam {
+			get { return !(RawHasIceBeam || RawHasWaveBeam); }
+			set {
+				if (!value) throw new ArgumentException("Boolean must be true, only set the one that should be populated");
+				RawHasIceBeam = false;
+				RawHasWaveBeam = false;
 			}
 		}
 

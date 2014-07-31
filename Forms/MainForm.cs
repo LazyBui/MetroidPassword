@@ -12,7 +12,7 @@ namespace MetroidPassword.Forms {
 		public MainForm() {
 			InitializeComponent();
 
-			DefaultTextBackColor = txtUnk1.BackColor;
+			DefaultTextBackColor = txtGameTime.BackColor;
 			Current = new PasswordProperties();
 			UpdatePropertyDisplay();
 		}
@@ -167,579 +167,575 @@ namespace MetroidPassword.Forms {
 		}
 
 		private void chkHasVariaSuit_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasVariaSuit = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasVariaSuit = v;
+			});
 		}
 
 		private void chkVariaSuitTaken_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.VariaSuitTaken = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.VariaSuitTaken = v;
+			});
 		}
 
 		private void rbBrinstar_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.StartInTourian = false;
-			Current.StartInRidleyLair = false;
-			Current.StartInKraidLair = false;
-			Current.StartInNorfair = false;
-			Current.StartInBrinstar = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.StartInBrinstar = true;
+			});
 		}
 
 		private void rbKraidLair_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.StartInTourian = false;
-			Current.StartInRidleyLair = false;
-			Current.StartInNorfair = false;
-			Current.StartInBrinstar = false;
-			Current.StartInKraidLair = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.StartInKraidLair = true;
+			});
 		}
 
 		private void rbNorfair_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.StartInTourian = false;
-			Current.StartInRidleyLair = false;
-			Current.StartInKraidLair = false;
-			Current.StartInBrinstar = false;
-			Current.StartInNorfair = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.StartInNorfair = true;
+			});
 		}
 
 		private void rbRidleyLair_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.StartInTourian = false;
-			Current.StartInKraidLair = false;
-			Current.StartInNorfair = false;
-			Current.StartInBrinstar = false;
-			Current.StartInRidleyLair = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.StartInRidleyLair = true;
+			});
 		}
 
 		private void rbTourian_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.StartInRidleyLair = false;
-			Current.StartInKraidLair = false;
-			Current.StartInNorfair = false;
-			Current.StartInBrinstar = false;
-			Current.StartInTourian = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.StartInTourian = true;
+			});
 		}
 
 		private void chkHasScrewAttack_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasScrewAttack = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasScrewAttack = v;
+			});
 		}
 
 		private void chkScrewAttackTaken_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.ScrewAttackTaken = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.ScrewAttackTaken = v;
+			});
 		}
 
 		private void rbHasWaveBeam_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			// We only care about these when their toggle state is on because the message is sent to the old one as well
-			// e.g. if I have rbHasNeither currently checked and then check rbHasWaveBeam:
-			// rbHasNeither_CheckedChanged fires
-			// rbHasWaveBeam_CheckedChanged fires
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.HasWaveBeam = true;
-			Current.HasIceBeam = false;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.HasWaveBeam = true;
+			});
 		}
 
 		private void rbHasIceBeam_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.HasWaveBeam = false;
-			Current.HasIceBeam = true;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.HasIceBeam = true;
+			});
 		}
 
 		private void rbHasNeither_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			bool newValue = (sender as RadioButton).Checked;
-			if (!newValue) return;
-			Current.HasIceBeam = false;
-			Current.HasWaveBeam = false;
-			UpdatePropertyDisplay();
+			RadioButtonCheckedChanged(sender, () => {
+				Current.HasNormalBeam = true;
+			});
 		}
 
 		private void chkHasLongBeam_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasLongBeam = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasLongBeam = v;
+			});
 		}
 
 		private void chkHasMorphBall_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasMorphBall = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasMorphBall = v;
+			});
 		}
 
 		private void chkMorphBallTaken_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.MorphBallTaken = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.MorphBallTaken = v;
+			});
 		}
 
 		private void chkHasHighJumpBoots_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasHighJumpBoots = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasHighJumpBoots = v;
+			});
 		}
 
 		private void chkHighJumpBootsTaken_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HighJumpBootsTaken = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HighJumpBootsTaken = v;
+			});
 		}
 
 		private void chkHasBombs_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HasBombs = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HasBombs = v;
+			});
 		}
 
 		private void chkBombsTaken_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BombsTaken = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BombsTaken = v;
+			});
 		}
 
 		private void chkRidleyDead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyDead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyDead = v;
+			});
 		}
 
 		private void chkKraidDead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidDead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidDead = v;
+			});
 		}
 
 		private void chkMotherBrainDead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.MotherBrainDead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.MotherBrainDead = v;
+			});
 		}
 
 		private void rbHasSwimsuit_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Swimsuit = (sender as RadioButton).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Swimsuit = v;
+			});
 		}
 
 		private void chkReset_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Reset = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Reset = v;
+			});
 		}
 
 		private void chkKraidStatueRaised_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidStatueRaised = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidStatueRaised = v;
+			});
 		}
 
 		private void chkRidleyStatueRaised_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyStatueRaised = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyStatueRaised = v;
+			});
 		}
 
 		private void chkZebetite1Dead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Zebetite1Dead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Zebetite1Dead = v;
+			});
 		}
 
 		private void chkZebetite2Dead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Zebetite2Dead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Zebetite2Dead = v;
+			});
 		}
 
 		private void chkZebetite3Dead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Zebetite3Dead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Zebetite3Dead = v;
+			});
 		}
 
 		private void chkZebetite4Dead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Zebetite4Dead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Zebetite4Dead = v;
+			});
 		}
 
 		private void chkZebetite5Dead_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.Zebetite5Dead = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.Zebetite5Dead = v;
+			});
 		}
 
 		private void txtUnk1_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			byte value;
-			var box = sender as TextBox;
-			if (!byte.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.Unk1 = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<byte>(sender,
+				s => {
+					byte value;
+					return Tuple.Create(byte.TryParse(s, out value), value);
+				},
+				v => {
+					Current.Unk1 = v;
+				}
+			);
 		}
 
 		private void txtUnk2_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			byte value;
-			var box = sender as TextBox;
-			if (!byte.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.Unk2 = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<byte>(sender,
+				s => {
+					byte value;
+					return Tuple.Create(byte.TryParse(s, out value), value);
+				},
+				v => {
+					Current.Unk2 = v;
+				}
+			);
 		}
 
 		private void txtUnk3_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			byte value;
-			var box = sender as TextBox;
-			if (!byte.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.Unk3 = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<byte>(sender,
+				s => {
+					byte value;
+					return Tuple.Create(byte.TryParse(s, out value), value);
+				},
+				v => {
+					Current.Unk3 = v;
+				}
+			);
 		}
 
 		private void txtShift_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			byte value;
-			var box = sender as TextBox;
-			if (!byte.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.Shift = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<byte>(sender,
+				s => {
+					byte value;
+					return Tuple.Create(byte.TryParse(s, out value), value);
+				},
+				v => {
+					Current.Shift = v;
+				}
+			);
 		}
 
 		private void txtGameTime_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			uint value;
-			var box = sender as TextBox;
-			if (!uint.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.GameAge = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<uint>(sender,
+				s => {
+					uint value;
+					return Tuple.Create(uint.TryParse(s, out value), value);
+				},
+				v => {
+					Current.GameAge = v;
+				}
+			);
 		}
 
 		private void txtMissiles_TextChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			byte value;
-			var box = sender as TextBox;
-			if (!byte.TryParse(box.Text, out value)) box.BackColor = Color.PaleVioletRed;
-			else box.BackColor = DefaultTextBackColor;
-			Current.MissileCount = value;
-			UpdatePropertyDisplay();
+			TextBoxChanged<byte>(sender,
+				s => {
+					byte value;
+					return Tuple.Create(byte.TryParse(s, out value), value);
+				},
+				v => {
+					Current.MissileCount = v;
+				}
+			);
 		}
 
 		private void chkKraidEnergyTank_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidRoomEnergyTank = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidRoomEnergyTank = v;
+			});
 		}
 
 		private void chkRidleyEnergyTank_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyEnergyTank = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyEnergyTank = v;
+			});
 		}
 
 		private void chkBrinstarEnergyTank3_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarEnergyTank3 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarEnergyTank3 = v;
+			});
 		}
 
 		private void chkBrinstarEnergyTank2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarEnergyTank2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarEnergyTank2 = v;
+			});
 		}
 
 		private void chkBrinstarEnergyTank1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarEnergyTank1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarEnergyTank1 = v;
+			});
 		}
 
 		private void chkRidleyLairEnergyTank_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairEnergyTank = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairEnergyTank = v;
+			});
 		}
 
 		private void chkKraidLairEnergyTank_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairEnergyTank = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairEnergyTank = v;
+			});
 		}
 
 		private void chkNorfairEnergyTank_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairEnergyTank = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairEnergyTank = v;
+			});
 		}
 
 		private void chkBrinstarMissileContainer1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarMissileContainer1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarMissileContainer1 = v;
+			});
 		}
 
 		private void chkBrinstarMissileContainer2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarMissileContainer2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarMissileContainer2 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer1 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer2 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer3_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer3 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer3 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer4_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer4 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer4 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer5_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer5 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer5 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer6_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer6 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer6 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer7_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer7 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer7 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer8_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer8 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer8 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer9_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer9 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer9 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer10_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer10 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer10 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer11_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer11 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer11 = v;
+			});
 		}
 
 		private void chkNorfairMissileContainer12_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairMissileContainer12 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairMissileContainer12 = v;
+			});
 		}
 
 		private void chkRidleyLairMissileContainer1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairMissileContainer1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairMissileContainer1 = v;
+			});
 		}
 
 		private void chkRidleyLairMissileContainer2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairMissileContainer2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairMissileContainer2 = v;
+			});
 		}
 
 		private void chkRidleyLairMissileContainer3_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairMissileContainer3 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairMissileContainer3 = v;
+			});
 		}
 
 		private void chkKraidLairMissileContainer1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairMissileContainer1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairMissileContainer1 = v;
+			});
 		}
 
 		private void chkKraidLairMissileContainer2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairMissileContainer2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairMissileContainer2 = v;
+			});
 		}
 
 		private void chkKraidLairMissileContainer3_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairMissileContainer3 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairMissileContainer3 = v;
+			});
 		}
 
 		private void chkKraidLairMissileContainer4_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairMissileContainer4 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairMissileContainer4 = v;
+			});
 		}
 
 		private void chkRidleyLairRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairRedDoor = v;
+			});
 		}
 
 		private void chkRidleyLairYellowDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.RidleyLairYellowDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.RidleyLairYellowDoor = v;
+			});
 		}
 
 		private void chkTourianYellowDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.TourianYellowDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.TourianYellowDoor = v;
+			});
 		}
 
 		private void chkWaveBeamRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.WaveBeamRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.WaveBeamRedDoor = v;
+			});
 		}
 
 		private void chkScrewAttackRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.ScrewAttackRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.ScrewAttackRedDoor = v;
+			});
 		}
 
 		private void chkHighJumpBootsRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.HighJumpBootsRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.HighJumpBootsRedDoor = v;
+			});
 		}
 
 		private void chkVariaSuitRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.VariaSuitRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.VariaSuitRedDoor = v;
+			});
 		}
 
 		private void chkBombsRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BombsRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BombsRedDoor = v;
+			});
 		}
 
 		private void chkLongBeamRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.LongBeamRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.LongBeamRedDoor = v;
+			});
 		}
 
 		private void chkNorfairIceBeamRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.NorfairIceBeamRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.NorfairIceBeamRedDoor = v;
+			});
 		}
 
 		private void chkBrinstarIceBeamRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.BrinstarIceBeamRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.BrinstarIceBeamRedDoor = v;
+			});
 		}
 
 		private void chkKraidLairRedDoor1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairRedDoor1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairRedDoor1 = v;
+			});
 		}
 
 		private void chkKraidLairRedDoor2_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairRedDoor2 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairRedDoor2 = v;
+			});
 		}
 
 		private void chkKraidLairRedDoor3_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairRedDoor3 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairRedDoor3 = v;
+			});
 		}
 
 		private void chkKraidLairRedDoor4_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidLairRedDoor4 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidLairRedDoor4 = v;
+			});
 		}
 
 		private void chkKraidRoomRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.KraidRoomRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.KraidRoomRedDoor = v;
+			});
 		}
 
 		private void chkTourianBridgeRedDoor_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.TourianBridgeRedDoor = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.TourianBridgeRedDoor = v;
+			});
 		}
 
 		private void chkTourianRedDoor1_CheckedChanged(object sender, EventArgs e) {
-			if (Updating) return;
-			Current.TourianRedDoor1 = (sender as CheckBox).Checked;
-			UpdatePropertyDisplay();
+			CheckboxCheckedChanged(sender, v => {
+				Current.TourianRedDoor1 = v;
+			});
 		}
 
 		private void chkTourianRedDoor2_CheckedChanged(object sender, EventArgs e) {
+			CheckboxCheckedChanged(sender, v => {
+				Current.TourianRedDoor2 = v;
+			});
+		}
+
+		private void CheckboxCheckedChanged(object pSender, Action<bool> pAction) {
 			if (Updating) return;
-			Current.TourianRedDoor2 = (sender as CheckBox).Checked;
+			pAction((pSender as CheckBox).Checked);
+			UpdatePropertyDisplay();
+		}
+
+		private void RadioButtonCheckedChanged(object pSender, Action pAction) {
+			if (Updating) return;
+			bool newValue = (pSender as RadioButton).Checked;
+			if (!newValue) return;
+			pAction();
+			UpdatePropertyDisplay();
+		}
+
+		private void TextBoxChanged<TResult>(object pSender, Func<string, Tuple<bool, TResult>> pValidate, Action<TResult> pAction) {
+			if (Updating) return;
+			var box = pSender as TextBox;
+			var result = pValidate(box.Text);
+			if (!result.Item1) {
+				box.BackColor = Color.PaleVioletRed;
+				return;
+			}
+			box.BackColor = DefaultTextBackColor;
+			pAction(result.Item2);
 			UpdatePropertyDisplay();
 		}
 	}
