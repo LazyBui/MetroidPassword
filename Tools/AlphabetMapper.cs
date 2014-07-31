@@ -19,12 +19,14 @@ namespace MetroidPassword.Tools {
 	internal static class AlphabetMapper {
 		public const int PartCharacterLength = PartCount;
 
+		private const int BitsPerComputerByte = 8;
 		private const int BitsPerCharacter = 6;
 		private const int CharacterCount = PasswordProperties.TotalBits / BitsPerCharacter;
 		private const int Parts = 4;
 		private const int PartCount = CharacterCount / Parts;
-		private const int ByteCount = PasswordProperties.TotalBits / 8;
+		private const int ByteCount = PasswordProperties.TotalBits / BitsPerComputerByte;
 		private const int AlphabetSize = 64;
+		private const int SpaceValue = 255;
 
 		// Space is part of the alphabet, but works very differently.
 		// Everything except space is encoded in 6 bits and space has an 8-bit value of 255.
@@ -129,8 +131,8 @@ namespace MetroidPassword.Tools {
 			foreach (char c in pRaw) {
 				char test = c;
 				if (test == ' ') {
-					// Space is a special value that's sort of considered 255
-					result[idx++] = 255;
+					// Space is a special value
+					result[idx++] = SpaceValue;
 				}
 				else {
 					result[idx++] = (byte)sTable.IndexOf(test);
@@ -141,7 +143,7 @@ namespace MetroidPassword.Tools {
 
 		private static byte[] CollapseBytesFromRaw(byte[] pRawBytes) {
 			var result = new byte[ByteCount];
-			if (!pRawBytes.Any(b => b == 255)) {
+			if (!pRawBytes.Any(b => b == SpaceValue)) {
 				// We have no spaces, this is a comparatively easy operation
 				int byteIndex = 0;
 				for (int i = 0; i < BitsPerCharacter; i++) {
@@ -183,7 +185,7 @@ namespace MetroidPassword.Tools {
 		private static string ConvertRawBytesToMetroidString(byte[] pRawBytes) {
 			var result = new StringBuilder();
 			foreach (byte b in pRawBytes) {
-				if (b == 255) {
+				if (b == SpaceValue) {
 					result.Append(' ');
 				}
 				else {
