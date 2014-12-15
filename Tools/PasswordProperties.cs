@@ -113,6 +113,8 @@ namespace MetroidPassword.Tools {
 				return missiles;
 			}
 			set {
+				if (value > 256) throw new ArgumentException("Invalid MissleCount");
+
 				MissileCount128 = (value & 0x80) == 0x80;
 				MissileCount64 = (value & 0x40) == 0x40;
 				MissileCount32 = (value & 0x20) == 0x20;
