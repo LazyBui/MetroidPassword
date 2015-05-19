@@ -41,7 +41,7 @@ namespace MetroidPassword.Tools {
 		};
 
 		public static string[] Split(string pRaw) {
-			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid characters", "pRaw");
+			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid characters", nameof(pRaw));
 			string[] split = new string[Parts];
 			pRaw = Format(pRaw);
 			for (int i = 0; i < Parts; i++) {
@@ -119,7 +119,7 @@ namespace MetroidPassword.Tools {
 		}
 
 		public static byte[] TranslateMetroidStringToComputerBytes(string pRaw) {
-			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid string");
+			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid string", nameof(pRaw));
 			pRaw = Format(pRaw);
 
 			return CollapseBytesFromRaw(ConvertMetroidStringToRawBytes(pRaw));
@@ -161,7 +161,7 @@ namespace MetroidPassword.Tools {
 		}
 
 		public static string TranslateComputerBytesToMetroidString(byte[] pBytes) {
-			if (pBytes.Length != ByteCount) throw new ArgumentException("Invalid bit array");
+			if (pBytes.Length != ByteCount) throw new ArgumentException("Invalid bit array", nameof(pBytes));
 			return ConvertRawBytesToMetroidString(ExpandBytesToRaw(pBytes));
 		}
 

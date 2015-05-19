@@ -146,7 +146,7 @@ namespace MetroidPassword.Forms {
 			chkRidleyLairYellowDoor.Checked = Current.RidleyLairYellowDoor;
 			chkTourianYellowDoor.Checked = Current.TourianYellowDoor;
 
-			uint gameTime = Current.GetGameTimeInSeconds(60);
+			uint gameTime = Current.GetGameTimeInSeconds(RefreshRate.Ntsc);
 			uint hours = gameTime / 60 / 60;
 			uint minutes = (gameTime - (hours * 60 * 60)) / 60;
 			uint seconds = (gameTime - (hours * 60 * 60) - (minutes * 60));

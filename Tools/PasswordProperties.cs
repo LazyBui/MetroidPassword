@@ -207,15 +207,13 @@ namespace MetroidPassword.Tools {
 			}
 		}
 
-		public uint GetGameTimeInSeconds(int pRefreshRate) {
-			if (pRefreshRate != 60 && pRefreshRate != 50) throw new ArgumentException("pRefreshRate must be 50 or 60");
-			double gameTick = 256.0 / pRefreshRate;
+		public uint GetGameTimeInSeconds(RefreshRate pRefreshRate) {
+			double gameTick = 256.0 / pRefreshRate.Value;
 			return (uint)(GameAge * gameTick);
 		}
 
-		public void SetGameTime(uint pSeconds, int pRefreshRate) {
-			if (pRefreshRate != 60 && pRefreshRate != 50) throw new ArgumentException("pRefreshRate must be 50 or 60");
-			double gameTick = 256.0 / pRefreshRate;
+		public void SetGameTime(uint pSeconds, RefreshRate pRefreshRate) {
+			double gameTick = 256.0 / pRefreshRate.Value;
 			GameAge = (uint)(pSeconds * gameTick);
 		}
 	}
