@@ -7,13 +7,13 @@ namespace MetroidPassword.Tools {
 		public string Encoded { get; private set; }
 		public PasswordProperties Properties { get; private set; }
 
-		public Password(string pRawEncoded) {
-			Encoded = pRawEncoded;
+		public Password(string raw) {
+			Encoded = raw;
 			Decode();
 		}
 
-		public Password(PasswordProperties pDesired) {
-			Properties = pDesired;
+		public Password(PasswordProperties desired) {
+			Properties = desired;
 			Encode();
 		}
 
@@ -23,17 +23,17 @@ namespace MetroidPassword.Tools {
 		private const int GameAgeEndByteIndex = 14;
 		private const int GameAgeStartByteIndex = 11;
 
-		private static void Swap(byte[] pBytes, int pIndex1, int pIndex2) {
-			byte temp = pBytes[pIndex1];
-			pBytes[pIndex1] = pBytes[pIndex2];
-			pBytes[pIndex2] = temp;
+		private static void Swap(byte[] bytes, int idx1, int idx2) {
+			byte temp = bytes[idx1];
+			bytes[idx1] = bytes[idx2];
+			bytes[idx2] = temp;
 		}
 
-		private byte CalculateChecksum(byte[] pBytes, byte pShift) {
-			byte checksum = pShift;
+		private byte CalculateChecksum(byte[] bytes, byte shift) {
+			byte checksum = shift;
 			for (int i = ChecksumByteCount - 1; i >= 0; i--) {
 				unchecked {
-					checksum += pBytes[i];
+					checksum += bytes[i];
 				}
 			}
 			return checksum;

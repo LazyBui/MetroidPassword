@@ -15,124 +15,124 @@ namespace MetroidPassword {
 			0x03, 0x0B, 0x07, 0x0F,
 		};
 
-		public static byte ReverseBits(this byte pVal) {
-			return (byte)((sFlipTable[pVal & 0x0F] << 4) | sFlipTable[pVal >> 4]);
+		public static byte ReverseBits(this byte @this) {
+			return (byte)((sFlipTable[@this & 0x0F] << 4) | sFlipTable[@this >> 4]);
 		}
 
-		public static byte RotateRight(this byte pVal, int pShiftCount) {
-			pShiftCount &= ByteSize - 1;
-			return (byte)((byte)(pVal >> pShiftCount) | (byte)(pVal << (ByteSize - pShiftCount)));
+		public static byte RotateRight(this byte @this, int shiftCount) {
+			shiftCount &= ByteSize - 1;
+			return (byte)((byte)(@this >> shiftCount) | (byte)(@this << (ByteSize - shiftCount)));
 		}
 
-		public static byte RotateLeft(this byte pVal, int pShiftCount) {
-			pShiftCount &= ByteSize - 1;
-			return (byte)((byte)(pVal << pShiftCount) | (byte)(pVal >> (ByteSize - pShiftCount)));
+		public static byte RotateLeft(this byte @this, int shiftCount) {
+			shiftCount &= ByteSize - 1;
+			return (byte)((byte)(@this << shiftCount) | (byte)(@this >> (ByteSize - shiftCount)));
 		}
 
-		public static ushort RotateRight(this ushort pVal, int pShiftCount) {
-			pShiftCount &= ShortSize - 1;
-			return (ushort)((ushort)(pVal >> pShiftCount) | (ushort)(pVal << (ShortSize - pShiftCount)));
+		public static ushort RotateRight(this ushort @this, int shiftCount) {
+			shiftCount &= ShortSize - 1;
+			return (ushort)((ushort)(@this >> shiftCount) | (ushort)(@this << (ShortSize - shiftCount)));
 		}
 
-		public static ushort RotateLeft(this ushort pVal, int pShiftCount) {
-			pShiftCount &= ShortSize - 1;
-			return (ushort)((ushort)(pVal << pShiftCount) | (ushort)(pVal >> (ShortSize - pShiftCount)));
+		public static ushort RotateLeft(this ushort @this, int shiftCount) {
+			shiftCount &= ShortSize - 1;
+			return (ushort)((ushort)(@this << shiftCount) | (ushort)(@this >> (ShortSize - shiftCount)));
 		}
 
-		public static uint RotateRight(this uint pVal, int pShiftCount) {
-			pShiftCount &= IntSize - 1;
-			return (uint)((uint)(pVal >> pShiftCount) | (uint)(pVal << (IntSize - pShiftCount)));
+		public static uint RotateRight(this uint @this, int shiftCount) {
+			shiftCount &= IntSize - 1;
+			return (uint)((uint)(@this >> shiftCount) | (uint)(@this << (IntSize - shiftCount)));
 		}
 
-		public static uint RotateLeft(this uint pVal, int pShiftCount) {
-			pShiftCount &= IntSize - 1;
-			return (uint)((uint)(pVal << pShiftCount) | (uint)(pVal >> (IntSize - pShiftCount)));
+		public static uint RotateLeft(this uint @this, int shiftCount) {
+			shiftCount &= IntSize - 1;
+			return (uint)((uint)(@this << shiftCount) | (uint)(@this >> (IntSize - shiftCount)));
 		}
 
-		public static ulong RotateRight(this ulong pVal, int pShiftCount) {
-			pShiftCount &= LongSize - 1;
-			return (ulong)((ulong)(pVal >> pShiftCount) | (ulong)(pVal << (LongSize - pShiftCount)));
+		public static ulong RotateRight(this ulong @this, int shiftCount) {
+			shiftCount &= LongSize - 1;
+			return (ulong)((ulong)(@this >> shiftCount) | (ulong)(@this << (LongSize - shiftCount)));
 		}
 
-		public static ulong RotateLeft(this ulong pVal, int pShiftCount) {
-			pShiftCount &= LongSize - 1;
-			return (ulong)((ulong)(pVal << pShiftCount) | (ulong)(pVal >> (LongSize - pShiftCount)));
+		public static ulong RotateLeft(this ulong @this, int shiftCount) {
+			shiftCount &= LongSize - 1;
+			return (ulong)((ulong)(@this << shiftCount) | (ulong)(@this >> (LongSize - shiftCount)));
 		}
 
-		public static byte[] RotateLeft(this byte[] pBytes, int pShiftCount) {
-			if (pBytes == null) return null;
-			if (pBytes.Length == 0 || pShiftCount == 0) return pBytes;
-			pShiftCount %= pBytes.Length * ByteSize;
+		public static byte[] RotateLeft(this byte[] @this, int shiftCount) {
+			if (@this == null) return null;
+			if (@this.Length == 0 || shiftCount == 0) return @this;
+			shiftCount %= @this.Length * ByteSize;
 
-			byte[] returnVal = new byte[pBytes.Length];
-			Buffer.BlockCopy(pBytes, 0, returnVal, 0, pBytes.Length);
-			if (pBytes.Length == 1) {
-				returnVal[0] = returnVal[0].RotateLeft(pShiftCount);
+			byte[] result = new byte[@this.Length];
+			Buffer.BlockCopy(@this, 0, result, 0, @this.Length);
+			if (@this.Length == 1) {
+				result[0] = result[0].RotateLeft(shiftCount);
 			}
 			else {
 				bool bit = true;
 				bool tempBit = false;
-				int end = pBytes.Length - 1;
+				int end = @this.Length - 1;
 				int first = end;
 				byte bitValue = 0x01;
 				byte bitMatch = 0x80;
 
-				for (int shift = 0; shift < pShiftCount; shift++) {
-					byte b = returnVal[first];
+				for (int shift = 0; shift < shiftCount; shift++) {
+					byte b = result[first];
 
 					for (int idx = end; idx >= 0; idx--) {
-						tempBit = (returnVal[idx] & bitMatch) == bitMatch;
-						returnVal[idx] <<= 1;
-						returnVal[idx] |= (byte)(bit ? bitValue : 0);
+						tempBit = (result[idx] & bitMatch) == bitMatch;
+						result[idx] <<= 1;
+						result[idx] |= (byte)(bit ? bitValue : 0);
 						bit = tempBit;
 					}
 
 					tempBit = (b & bitMatch) == bitMatch;
 					b <<= 1;
 					b |= (byte)(bit ? bitValue : 0);
-					returnVal[first] = b;
+					result[first] = b;
 					bit = tempBit;
 				}
 			}
-			return returnVal;
+			return result;
 		}
 
-		public static byte[] RotateRight(this byte[] pBytes, int pShiftCount) {
-			if (pBytes == null) return null;
-			if (pBytes.Length == 0 || pShiftCount == 0) return pBytes;
-			pShiftCount %= pBytes.Length * ByteSize;
+		public static byte[] RotateRight(this byte[] @this, int shiftCount) {
+			if (@this == null) return null;
+			if (@this.Length == 0 || shiftCount == 0) return @this;
+			shiftCount %= @this.Length * ByteSize;
 
-			byte[] returnVal = new byte[pBytes.Length];
-			Buffer.BlockCopy(pBytes, 0, returnVal, 0, pBytes.Length);
-			if (pBytes.Length == 1) {
-				returnVal[0] = returnVal[0].RotateRight(pShiftCount);
+			byte[] result = new byte[@this.Length];
+			Buffer.BlockCopy(@this, 0, result, 0, @this.Length);
+			if (@this.Length == 1) {
+				result[0] = result[0].RotateRight(shiftCount);
 			}
 			else {
 				bool bit = true;
 				bool tempBit = false;
-				int end = pBytes.Length - 1;
+				int end = @this.Length - 1;
 				int first = 0;
 				byte bitValue = 0x80;
 				byte bitMatch = 0x01;
 
-				for (int shift = 0; shift < pShiftCount; shift++) {
-					byte b = returnVal[first];
+				for (int shift = 0; shift < shiftCount; shift++) {
+					byte b = result[first];
 
 					for (int idx = 0; idx <= end; idx++) {
-						tempBit = (returnVal[idx] & bitMatch) == bitMatch;
-						returnVal[idx] >>= 1;
-						returnVal[idx] |= (byte)(bit ? bitValue : 0);
+						tempBit = (result[idx] & bitMatch) == bitMatch;
+						result[idx] >>= 1;
+						result[idx] |= (byte)(bit ? bitValue : 0);
 						bit = tempBit;
 					}
 
 					tempBit = (b & bitMatch) == bitMatch;
 					b >>= 1;
 					b |= (byte)(bit ? bitValue : 0);
-					returnVal[first] = b;
+					result[first] = b;
 					bit = tempBit;
 				}
 			}
-			return returnVal;
+			return result;
 		}
 	}
 }

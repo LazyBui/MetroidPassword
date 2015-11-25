@@ -712,30 +712,30 @@ namespace MetroidPassword.Forms {
 			});
 		}
 
-		private void CheckboxCheckedChanged(object pSender, Action<bool> pAction) {
+		private void CheckboxCheckedChanged(object sender, Action<bool> action) {
 			if (Updating) return;
-			pAction((pSender as CheckBox).Checked);
+			action((sender as CheckBox).Checked);
 			UpdatePropertyDisplay();
 		}
 
-		private void RadioButtonCheckedChanged(object pSender, Action pAction) {
+		private void RadioButtonCheckedChanged(object sender, Action action) {
 			if (Updating) return;
-			bool newValue = (pSender as RadioButton).Checked;
+			bool newValue = (sender as RadioButton).Checked;
 			if (!newValue) return;
-			pAction();
+			action();
 			UpdatePropertyDisplay();
 		}
 
-		private void TextBoxChanged<TResult>(object pSender, Func<string, Tuple<bool, TResult>> pValidate, Action<TResult> pAction) {
+		private void TextBoxChanged<TResult>(object sender, Func<string, Tuple<bool, TResult>> validate, Action<TResult> action) {
 			if (Updating) return;
-			var box = pSender as TextBox;
-			var result = pValidate(box.Text);
+			var box = sender as TextBox;
+			var result = validate(box.Text);
 			if (!result.Item1) {
 				box.BackColor = Color.PaleVioletRed;
 				return;
 			}
 			box.BackColor = DefaultTextBackColor;
-			pAction(result.Item2);
+			action(result.Item2);
 			UpdatePropertyDisplay();
 		}
 	}

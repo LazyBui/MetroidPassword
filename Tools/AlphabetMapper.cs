@@ -40,95 +40,95 @@ namespace MetroidPassword.Tools {
 			'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '?', '-', ' ',
 		};
 
-		public static string[] Split(string pRaw) {
-			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid characters", nameof(pRaw));
+		public static string[] Split(string raw) {
+			if (!IsValidString(raw)) throw new ArgumentException("Invalid characters", nameof(raw));
 			string[] split = new string[Parts];
-			pRaw = Format(pRaw);
+			raw = Format(raw);
 			for (int i = 0; i < Parts; i++) {
-				split[i] = pRaw.Substring(i * PartCount, PartCount);
+				split[i] = raw.Substring(i * PartCount, PartCount);
 			}
 			return split;
 		}
 
-		public static CombinationResult Combine(string pPart1, string pPart2, string pPart3, string pPart4, out string pOut) {
-			if (string.IsNullOrEmpty(pPart1) || pPart1.Length != PartCount) {
-				pOut = null;
+		public static CombinationResult Combine(string part1, string part2, string part3, string part4, out string value) {
+			if (string.IsNullOrEmpty(part1) || part1.Length != PartCount) {
+				value = null;
 				return CombinationResult.Part1Invalid;
 			}
-			if (string.IsNullOrEmpty(pPart2) || pPart2.Length != PartCount) {
-				pOut = null;
+			if (string.IsNullOrEmpty(part2) || part2.Length != PartCount) {
+				value = null;
 				return CombinationResult.Part2Invalid;
 			}
-			if (string.IsNullOrEmpty(pPart3) || pPart3.Length != PartCount) {
-				pOut = null;
+			if (string.IsNullOrEmpty(part3) || part3.Length != PartCount) {
+				value = null;
 				return CombinationResult.Part3Invalid;
 			}
-			if (string.IsNullOrEmpty(pPart4) || pPart4.Length != PartCount) {
-				pOut = null;
+			if (string.IsNullOrEmpty(part4) || part4.Length != PartCount) {
+				value = null;
 				return CombinationResult.Part4Invalid;
 			}
 
 			Func<char, bool> isInvalid = (c) => sTable.IndexOf(c) == -1;
-			if (pPart1.Any(isInvalid)) {
-				pOut = null;
+			if (part1.Any(isInvalid)) {
+				value = null;
 				return CombinationResult.Part1InvalidChars;
 			}
-			if (pPart2.Any(isInvalid)) {
-				pOut = null;
+			if (part2.Any(isInvalid)) {
+				value = null;
 				return CombinationResult.Part2InvalidChars;
 			}
-			if (pPart3.Any(isInvalid)) {
-				pOut = null;
+			if (part3.Any(isInvalid)) {
+				value = null;
 				return CombinationResult.Part3InvalidChars;
 			}
-			if (pPart4.Any(isInvalid)) {
-				pOut = null;
+			if (part4.Any(isInvalid)) {
+				value = null;
 				return CombinationResult.Part4InvalidChars;
 			}
 
-			pOut = string.Join("", new[] { pPart1, pPart2, pPart3, pPart4 });
+			value = string.Join("", new[] { part1, part2, part3, part4 });
 			return CombinationResult.Success;
 		}
 
-		private static bool IsValidString(string pRaw) {
-			if (string.IsNullOrEmpty(pRaw)) return false;
-			if (pRaw.Length != CharacterCount) {
+		private static bool IsValidString(string raw) {
+			if (string.IsNullOrEmpty(raw)) return false;
+			if (raw.Length != CharacterCount) {
 				// We can accept delimiters here, but we must be careful
-				if (pRaw.Length != (CharacterCount + Parts - 1)) return false;
+				if (raw.Length != (CharacterCount + Parts - 1)) return false;
 
 				// We would have 3 delimiters if there are 4 parts and they should all be the same
 				string validDelimiter = null;
 				for (int i = 0; i < (Parts - 1); i++) {
-					string delimiter = pRaw.Substring(PartCount * (i + 1) + i, 1);
+					string delimiter = raw.Substring(PartCount * (i + 1) + i, 1);
 					if (validDelimiter == null) validDelimiter = delimiter;
 					else if (delimiter != validDelimiter) return false;
 				}
 			}
-			if (pRaw.Any(c => sTable.IndexOf(c) == -1)) return false;
+			if (raw.Any(c => sTable.IndexOf(c) == -1)) return false;
 			return true;
 		}
 
-		private static string Format(string pRaw) {
-			if (pRaw.Length == CharacterCount) return pRaw;
+		private static string Format(string raw) {
+			if (raw.Length == CharacterCount) return raw;
 			// We assume we have delimiters
 			var sb = new StringBuilder();
 			for (int i = 0; i < Parts; i++) {
-				sb.Append(pRaw.Substring(i * PartCount + i, PartCount));
+				sb.Append(raw.Substring(i * PartCount + i, PartCount));
 			}
 			return sb.ToString();
 		}
 
-		public static byte[] TranslateMetroidStringToComputerBytes(string pRaw) {
-			if (!IsValidString(pRaw)) throw new ArgumentException("Invalid string", nameof(pRaw));
-			pRaw = Format(pRaw);
+		public static byte[] TranslateMetroidStringToComputerBytes(string raw) {
+			if (!IsValidString(raw)) throw new ArgumentException("Invalid string", nameof(raw));
+			raw = Format(raw);
 
-			return CollapseBytesFromRaw(ConvertMetroidStringToRawBytes(pRaw));
+			return CollapseBytesFromRaw(ConvertMetroidStringToRawBytes(raw));
 		}
 
-		private static byte[] ConvertMetroidStringToRawBytes(string pRaw) {
+		private static byte[] ConvertMetroidStringToRawBytes(string raw) {
 			var result = new byte[CharacterCount];
 			int idx = 0;
-			foreach (char c in pRaw) {
+			foreach (char c in raw) {
 				char test = c;
 				if (test == ' ') {
 					// Space is a special value
@@ -141,16 +141,16 @@ namespace MetroidPassword.Tools {
 			return result;
 		}
 
-		private static byte[] CollapseBytesFromRaw(byte[] pRawBytes) {
+		private static byte[] CollapseBytesFromRaw(byte[] rawBytes) {
 			var result = new byte[ByteCount];
-			if (!pRawBytes.Any(b => b == SpaceValue)) {
+			if (!rawBytes.Any(b => b == SpaceValue)) {
 				// We have no spaces, this is a comparatively easy operation
 				int byteIndex = 0;
 				for (int i = 0; i < BitsPerCharacter; i++) {
 					int baseIndex = i * 4;
-					result[byteIndex++] = (byte)((pRawBytes[baseIndex + 0] << 2) | (pRawBytes[baseIndex + 1] >> 4));
-					result[byteIndex++] = (byte)((pRawBytes[baseIndex + 1] << 4) | (pRawBytes[baseIndex + 2] >> 2));
-					result[byteIndex++] = (byte)((pRawBytes[baseIndex + 2] << 6) | (pRawBytes[baseIndex + 3] >> 0));
+					result[byteIndex++] = (byte)((rawBytes[baseIndex + 0] << 2) | (rawBytes[baseIndex + 1] >> 4));
+					result[byteIndex++] = (byte)((rawBytes[baseIndex + 1] << 4) | (rawBytes[baseIndex + 2] >> 2));
+					result[byteIndex++] = (byte)((rawBytes[baseIndex + 2] << 6) | (rawBytes[baseIndex + 3] >> 0));
 				}
 			}
 			else {
@@ -160,12 +160,12 @@ namespace MetroidPassword.Tools {
 			return result;
 		}
 
-		public static string TranslateComputerBytesToMetroidString(byte[] pBytes) {
-			if (pBytes.Length != ByteCount) throw new ArgumentException("Invalid bit array", nameof(pBytes));
-			return ConvertRawBytesToMetroidString(ExpandBytesToRaw(pBytes));
+		public static string TranslateComputerBytesToMetroidString(byte[] bytes) {
+			if (bytes.Length != ByteCount) throw new ArgumentException("Invalid bit array", nameof(bytes));
+			return ConvertRawBytesToMetroidString(ExpandBytesToRaw(bytes));
 		}
 
-		private static byte[] ExpandBytesToRaw(byte[] pBytes) {
+		private static byte[] ExpandBytesToRaw(byte[] bytes) {
 			var result = new byte[CharacterCount];
 
 			int byteIndex = 0;
@@ -173,18 +173,18 @@ namespace MetroidPassword.Tools {
 				int baseIndex = i * 3;
 				// Yes, I know the top left operation and the bottom right operation end up at being completely useless
 				// It's a stylistic thing
-				result[byteIndex++] = (byte)(((pBytes[baseIndex + 0] & 0x00) << 6) | (pBytes[baseIndex + 0] >> 2));
-				result[byteIndex++] = (byte)(((pBytes[baseIndex + 0] & 0x03) << 4) | (pBytes[baseIndex + 1] >> 4));
-				result[byteIndex++] = (byte)(((pBytes[baseIndex + 1] & 0x0F) << 2) | (pBytes[baseIndex + 2] >> 6));
-				result[byteIndex++] = (byte)(((pBytes[baseIndex + 2] & 0x3F) << 0) | (pBytes[baseIndex + 0] >> 8));
+				result[byteIndex++] = (byte)(((bytes[baseIndex + 0] & 0x00) << 6) | (bytes[baseIndex + 0] >> 2));
+				result[byteIndex++] = (byte)(((bytes[baseIndex + 0] & 0x03) << 4) | (bytes[baseIndex + 1] >> 4));
+				result[byteIndex++] = (byte)(((bytes[baseIndex + 1] & 0x0F) << 2) | (bytes[baseIndex + 2] >> 6));
+				result[byteIndex++] = (byte)(((bytes[baseIndex + 2] & 0x3F) << 0) | (bytes[baseIndex + 0] >> 8));
 			}
 
 			return result;
 		}
 
-		private static string ConvertRawBytesToMetroidString(byte[] pRawBytes) {
+		private static string ConvertRawBytesToMetroidString(byte[] rawBytes) {
 			var result = new StringBuilder();
-			foreach (byte b in pRawBytes) {
+			foreach (byte b in rawBytes) {
 				if (b == SpaceValue) {
 					result.Append(' ');
 				}

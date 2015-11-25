@@ -9,9 +9,9 @@ namespace MetroidPassword.Tools {
 		public static RefreshRate Ntsc = new RefreshRate(60);
 		public static RefreshRate Pal = new RefreshRate(50);
 
-		private RefreshRate(int pValue) {
-			if (pValue != 60 && pValue != 50) throw new ArgumentException("Must be 50 or 60", nameof(pValue));
-			Value = pValue;
+		private RefreshRate(int refreshRate) {
+			if (refreshRate != 60 && refreshRate != 50) throw new ArgumentException("Must be 50 or 60", nameof(refreshRate));
+			Value = refreshRate;
 		}
 	}
 }

@@ -207,14 +207,14 @@ namespace MetroidPassword.Tools {
 			}
 		}
 
-		public uint GetGameTimeInSeconds(RefreshRate pRefreshRate) {
-			double gameTick = 256.0 / pRefreshRate.Value;
+		public uint GetGameTimeInSeconds(RefreshRate refreshRate) {
+			double gameTick = 256.0 / refreshRate.Value;
 			return (uint)(GameAge * gameTick);
 		}
 
-		public void SetGameTime(uint pSeconds, RefreshRate pRefreshRate) {
-			double gameTick = 256.0 / pRefreshRate.Value;
-			GameAge = (uint)(pSeconds * gameTick);
+		public void SetGameTime(uint seconds, RefreshRate refreshRate) {
+			double gameTick = 256.0 / refreshRate.Value;
+			GameAge = (uint)(seconds * gameTick);
 		}
 	}
 }
