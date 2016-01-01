@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using MetroidPassword.Forms;
+
+[assembly: InternalsVisibleTo("MetroidPassword.Tests")]
 
 namespace MetroidPassword {
 	static class Program {
